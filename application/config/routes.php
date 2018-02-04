@@ -61,7 +61,10 @@ $route['previousbookings'] = "frontend/previousbookings";
 $route['checkout'] = "frontend/checkout";
 $route['editprofile'] = "frontend/editprofile";
 $route['editUserprofile'] = "frontend/editUserprofile";
-//$route['checkout'] = "frontend/checkout";
+$route['myvehicals'] = "frontend/uservehicalsListing";
+$route['editmybooking'] = "frontend/editbooking";
+$route['editmybooking/(:num)'] = "frontend/editbooking/$1";
+$route['updatemyvehicle'] = "frontend/updatemyvehicle";
 
 $route['addNewUser'] = "user/addNewUser";
 $route['editOld'] = "user/editOld";

@@ -163,11 +163,11 @@ class frontend extends CI_Controller {
             $userInfo = array();
 
             if (empty($password)) {
-                $userInfo = array('name' => $name,'city' => $city, 'town' => $town,'address' => $address,  
+                $userInfo = array('name' => $name, 'city' => $city, 'town' => $town, 'address' => $address,
                     'mobile' => $mobile, 'updatedDtm' => date('Y-m-d H:i:s'));
             } else {
-                $userInfo = array('city' => $city, 'town' => $town,'address' => $address,'password' => getHashedPassword($password),
-                    'name' => ucwords($name), 'mobile' => $mobile,'updatedDtm' => date('Y-m-d H:i:s'));
+                $userInfo = array('city' => $city, 'town' => $town, 'address' => $address, 'password' => getHashedPassword($password),
+                    'name' => ucwords($name), 'mobile' => $mobile, 'updatedDtm' => date('Y-m-d H:i:s'));
             }
             $this->load->model('user_model');
             $result = $this->user_model->editUser($userInfo, $userId);
@@ -183,6 +183,10 @@ class frontend extends CI_Controller {
     }
 
     function userbookings() {
+        $isLoggedIn = $this->session->userdata('isLoggedIn');
+        if (!isset($isLoggedIn) || $isLoggedIn != TRUE) {
+            redirect('/');
+        }
         $this->load->model('Reports_model');
         //$returns = $this->paginationCompress("reportsListing/", $count, 15);
         $userid = $this->session->userdata('userId');
@@ -193,6 +197,10 @@ class frontend extends CI_Controller {
     }
 
     function previousbookings() {
+        $isLoggedIn = $this->session->userdata('isLoggedIn');
+        if (!isset($isLoggedIn) || $isLoggedIn != TRUE) {
+            redirect('/');
+        }
         $this->load->model('Reports_model');
         //$returns = $this->paginationCompress("reportsListing/", $count, 15);
         $userid = $this->session->userdata('userId');
@@ -252,6 +260,45 @@ class frontend extends CI_Controller {
         // print_r($searchformdata);         exit();
         $this->session->set_userdata('usersearch', '');
         redirect('/mybookings');
+    }
+
+    function uservehicalsListing() {
+//        $userid = $this->session->userdata('userId');
+        
+        $this->load->view('frontend/frontheader');
+        $this->load->view('frontend/uservehicals');
+        $this->load->view('frontend/frontfooter');
+    }
+    
+    function editbooking($bookingid){
+         $isLoggedIn = $this->session->userdata('isLoggedIn');
+        if (!isset($isLoggedIn) || $isLoggedIn != TRUE) {
+            redirect('/');
+        }
+        $this->load->model('Front_model');
+        $data['userVehicals'] = $this->Front_model->getmyvehicals($this->session->userdata('userId'));
+        $this->load->model('Reports_model');
+        $userid = $this->session->userdata('userId');
+        if($userid != NULL){
+            $data['bookingdetail'] = $this->Reports_model->editindividualbooking($bookingid,$userid);
+        } else {
+            $data['bookingdetail'] = NULL;
+        }
+        
+        $this->load->view('frontend/frontheader');
+        $this->load->view('frontend/editbooking',$data);
+        $this->load->view('frontend/frontfooter');
+    }
+    
+    function updatemyvehicle(){
+         $isLoggedIn = $this->session->userdata('isLoggedIn');
+        if (!isset($isLoggedIn) || $isLoggedIn != TRUE) {
+            redirect('/');
+        }
+//        if ($this->session->userdata('role') == 2) {
+//            redirect('/');
+//        }
+        echo 'here';
     }
 
 }

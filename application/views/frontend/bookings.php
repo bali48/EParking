@@ -15,37 +15,36 @@ if (!isset($isLoggedIn) || $isLoggedIn !== TRUE) {
     <div class="container">
 
         <div class="row" style="margin-top: 10px">
-           
-            <?php   
 
-if( strpos( $_SERVER['REQUEST_URI'], 'previous' ) !== false ) { ?>
-     
-     <h1 align='center'> All Old Bookings</h1>    
-<?php
+            <?php if (strpos($_SERVER['REQUEST_URI'], 'previous') !== false) { ?>
 
-} else { ?>
- <h1 align='center'> Current & UpComing Bookings</h1>
-<?php
-
-}
- ?>
-                <div class="row p10"></div>
+                <h1 align='center'> All Old Bookings</h1>    
+        <?php } else {
+        ?>
+                <h1 align='center'> Current & UpComing Bookings</h1>
+                <?php
+            }
+            ?>
+            <div class="row p10"></div>
             <div class="col-sm-2">
 
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="<?php echo base_url(); ?>mybookings">My Upcoming Bookings</a>
+                        <a href="<?php echo base_url(); ?>mybookings">My Bookings</a>
                     </li>
                     <li class="list-group-item">
                         <a href="<?php echo base_url(); ?>previousbookings">Previous Bookings</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="<?php echo base_url(); ?>mybookings">Profile</a>
+                        <a href="<?php echo base_url(); ?>editprofile">Profile Settings</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="<?php echo base_url(); ?>myvehicals">My Vehicals</a>
                     </li>
                 </ul>
             </div>   
             <div class="col-sm-10">
-                
+
                 <table id="bookinglist" class="display" width="100%" cellspacing="0">
                     <thead>
                         <tr>
@@ -60,24 +59,24 @@ if( strpos( $_SERVER['REQUEST_URI'], 'previous' ) !== false ) { ?>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        if(!empty($userRecords)){
-                            foreach ($userRecords as $ur) {
-                                ?>
-                        <tr>
-                    <td><?php echo $ur->id; ?></td>
-                    <td><?php echo $ur->name; ?></td>
-                    <td><?php echo $ur->vname; ?></td>
-                    <td><?php echo $ur->vmodel; ?></td>
-                    <td><?php echo $ur->status; ?></td>
-                    <td><?php echo $ur->pay; ?></td>
-                    <td><?php echo $ur->bookingfrom; ?></td>
-                    <td><?php echo $ur->bookingto; ?></td>
-                        </tr>
-                        <?php
-                            }
-                        }
-                        ?>
+    <?php
+    if (!empty($userRecords)) {
+        foreach ($userRecords as $ur) {
+            ?>
+                                <tr>
+                                    <td><?php echo $ur->id; ?></td>
+                                    <td><?php echo $ur->name; ?></td>
+                                    <td><?php echo $ur->vname; ?></td>
+                                    <td><?php echo $ur->vmodel; ?></td>
+                                    <td><?php echo $ur->status; ?></td>
+                                    <td><?php echo $ur->pay; ?></td>
+                                    <td><?php echo $ur->bookingfrom; ?></td>
+                                    <td><?php echo $ur->bookingto; ?></td>
+                                </tr>
+            <?php
+        }
+    }
+    ?>
                     </tbody>
                 </table>
             </div>

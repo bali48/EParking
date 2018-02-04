@@ -32,13 +32,16 @@ if (!empty($userInfo)) {
 
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="<?php echo base_url(); ?>mybookings">My Upcoming Bookings</a>
+                <a href="<?php echo base_url(); ?>mybookings">My Bookings</a>
             </li>
             <li class="list-group-item">
                 <a href="<?php echo base_url(); ?>previousbookings">Previous Bookings</a>
             </li>
             <li class="list-group-item">
-                <a href="<?php echo base_url(); ?>mybookings">Profile</a>
+                 <a href="<?php echo base_url(); ?>editprofile">Profile Settings</a>
+            </li>
+            <li class="list-group-item">
+                 <a href="<?php echo base_url(); ?>myvehicals">My Vehicals</a>
             </li>
         </ul>
     </div>   
@@ -120,6 +123,7 @@ if (!empty($userInfo)) {
                             <div class="box-footer">
                                 <input type="submit" class="btn btn-primary" value="Submit" />
                                 <input type="reset" class="btn btn-default" value="Reset" />
+                                <a class="btn btn-prmary" href="<?php echo base_url();?>">Cancel</a>
                             </div>
                         </form>
                     </div>

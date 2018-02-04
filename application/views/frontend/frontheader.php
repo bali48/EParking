@@ -37,6 +37,11 @@
                 });
             });
         </script>
+        <style>
+            .dataTables_length{
+                display: none;
+            }
+        </style>
     </head>
 
     <body>

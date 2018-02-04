@@ -58,7 +58,7 @@
                         <?php
                         if($userVehicals != NULL){
                             foreach ($userVehicals as $value) { ?>
-                        <option id="<?php echo $value->id;?>"><?php echo '<b>'.$value->vnumber.'</b>-'.$value->vname.'-'.$value->vmodel; ?></option>
+                        <option id="<?php echo $value->id;?>" value="<?php echo $value->id;?>"><?php echo '<b>'.$value->vnumber.'</b>-'.$value->vname.'-'.$value->vmodel; ?></option>
                         <?php    }  
                         }
                         ?>
