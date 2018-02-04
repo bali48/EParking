@@ -15,14 +15,29 @@ if (!isset($isLoggedIn) || $isLoggedIn !== TRUE) {
     <div class="container">
 
         <div class="row" style="margin-top: 10px">
+           
+            <?php   
+
+if( strpos( $_SERVER['REQUEST_URI'], 'previous' ) !== false ) { ?>
+     
+     <h1 align='center'> All Old Bookings</h1>    
+<?php
+
+} else { ?>
+ <h1 align='center'> Current & UpComing Bookings</h1>
+<?php
+
+}
+ ?>
+                <div class="row p10"></div>
             <div class="col-sm-2">
 
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="<?php echo base_url(); ?>mybookings">My Bookings</a>
+                        <a href="<?php echo base_url(); ?>mybookings">My Upcoming Bookings</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="<?php echo base_url(); ?>mybookings">Previous Bookings</a>
+                        <a href="<?php echo base_url(); ?>previousbookings">Previous Bookings</a>
                     </li>
                     <li class="list-group-item">
                         <a href="<?php echo base_url(); ?>mybookings">Profile</a>

@@ -139,7 +139,7 @@ class User extends BaseController {
             $this->form_validation->set_rules('comp', 'comp', 'trim|required|numeric');
             if ($this->form_validation->run() == FALSE) {
                 $this->addNew();
-            } else {
+            } else { 
                 $name = ucwords(strtolower($this->input->post('fname')));
                 $email = $this->input->post('email');
                 $password = $this->input->post('password');

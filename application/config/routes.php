@@ -57,7 +57,10 @@ $route['userListing'] = 'user/userListing';
 $route['userListing/(:num)'] = "user/userListing/$1";
 $route['addNew'] = "user/addNew";
 $route['mybookings'] = "frontend/userbookings";
+$route['previousbookings'] = "frontend/previousbookings";
 $route['checkout'] = "frontend/checkout";
+$route['editprofile'] = "frontend/editprofile";
+$route['editUserprofile'] = "frontend/editUserprofile";
 //$route['checkout'] = "frontend/checkout";
 
 $route['addNewUser'] = "user/addNewUser";

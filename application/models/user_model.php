@@ -138,6 +138,17 @@ class User_model extends CI_Model {
 
         return $query->result();
     }
+    
+        function getUserProfileInfo($userId) {
+        $this->db->select('user.*');
+        $this->db->from('tbl_users as user');
+        $this->db->where('isDeleted', 0);
+        $this->db->where('roleId !=', 1);
+        $this->db->where('userId', $userId);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
 
     /**
      * This function is used to update the user information
