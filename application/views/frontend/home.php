@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 ?>
-
+  
 <!-- Header Carousel -->
 <header id="myCarousel" class="carousel slide">
     <!-- Indicators -->
