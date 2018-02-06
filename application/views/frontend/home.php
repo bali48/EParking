@@ -6,7 +6,7 @@
  */
 ?>
   
-<!-- Header Carousel -->
+<!-- Header Carousel sai a -->
 <header id="myCarousel" class="carousel slide">
     <!-- Indicators -->
     <ol class="carousel-indicators">
