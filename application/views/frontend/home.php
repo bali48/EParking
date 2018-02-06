@@ -19,7 +19,7 @@
     <div class="carousel-inner">
         <div class="item active">
             <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
-            <div class="carousel-caption">
+            <div class="carousel-caption">   
                 <h2>Caption 1</h2>
             </div>
         </div>
